@@ -3,8 +3,8 @@ import { abstractMotion, move, turnLeft, turnRight } from "./motion";
 
 const motionMap: Record<string, abstractMotion> = {
   "M": move,
-  "L": turnRight,
-  "R": turnLeft
+  "L": turnLeft,
+  "R": turnRight
 }
 
 export const performMotion = (initialCoOrdinate: coOrdinate, instruction: string) : coOrdinate => { 
