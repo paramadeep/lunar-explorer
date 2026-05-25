@@ -1,0 +1,15 @@
+{
+  "name": "pricing-monkey-lunar-explorer",
+  "version": "1.0.0",
+  "description": "PricingMonkey take home programming exercise",
+  "scripts": {
+    "test": "jest"
+  },
+  "private": true,
+  "devDependencies": {
+    "@jest/globals": "30.3.0",
+    "jest": "30.3.0",
+    "ts-jest": "29.4.9",
+    "typescript": "6.0.3"
+  }
+}
