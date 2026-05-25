@@ -20,30 +20,26 @@ function getLeftSide(facingDirection: string): string {
   return leftSideMap[facingDirection]
 }
 
-function getNewXIfValid(initalCoOrdinate: coOrdinate): coOrdinate {
+function getNewXIfValid(initalCoOrdinate: coOrdinate): number {
   var xIncrementerMap: Record<string, number> = {
     "N":0,
     "S":0,
     "E":1,
     "W":-1,
   }
-  var returnCoOrdinate = { ...initalCoOrdinate }
   const valueToIncrement = xIncrementerMap[initalCoOrdinate.facingDirection]  
-  returnCoOrdinate.x = returnCoOrdinate.x+valueToIncrement
-  return returnCoOrdinate
+  return initalCoOrdinate.x+valueToIncrement
 }
 
-function getNewYIfValid(initalCoOrdinate: coOrdinate): coOrdinate {
+function getNewYIfValid(initalCoOrdinate: coOrdinate): number {
   var yIncrementerMap: Record<string, number> = {
     "N":-1,
     "S":1,
     "E":0,
     "W":0,
   }
-  var returnCoOrdinate = { ...initalCoOrdinate }
   const valueToIncrement = yIncrementerMap[initalCoOrdinate.facingDirection]  
-  returnCoOrdinate.y = returnCoOrdinate.y+valueToIncrement
-  return returnCoOrdinate
+  return initalCoOrdinate.y+valueToIncrement
 }
 
 export {

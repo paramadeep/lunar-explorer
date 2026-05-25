@@ -36,62 +36,38 @@ describe("basicMoves", () => {
   describe("getNewXIfValid", () => { 
     it("when facing south, return same value", () => { 
       expect(getNewXIfValid({ x: 1, y: 1, facingDirection: "S" }))
-        .toMatchObject({ x: 1, y: 1, facingDirection: "S" })
+        .toBe(1)
     })
     it("when facing north, return same value", () => { 
       expect(getNewXIfValid({ x: 1, y: 1, facingDirection: "N" }))
-        .toMatchObject({ x: 1, y: 1, facingDirection: "N" })
+        .toBe(1)
     })
     it("when facing east, increment X", () => { 
       expect(getNewXIfValid({ x: 1, y: 1, facingDirection: "E" }))
-        .toMatchObject({ x: 2, y: 1, facingDirection: "E" })
+        .toBe(2)
     })
     it("when facing west, decrement X", () => { 
       expect(getNewXIfValid({ x: 1, y: 1, facingDirection: "W" }))
-        .toMatchObject({ x: 0, y: 1, facingDirection: "W" })
+        .toBe(0)
     })
   })
 
   describe("getNewYIfValid", () => { 
     it("when facing East, return same value", () => { 
       expect(getNewYIfValid({ x: 1, y: 1, facingDirection: "E" }))
-        .toMatchObject({ x: 1, y: 1, facingDirection: "E" })
+        .toBe(1)
     })
     it("when facing West, return same value", () => { 
       expect(getNewYIfValid({ x: 1, y: 1, facingDirection: "W" }))
-        .toMatchObject({ x: 1, y: 1, facingDirection: "W" })
+        .toBe(1)
     })
     it("when facing south, increment Y", () => { 
       expect(getNewYIfValid({ x: 1, y: 1, facingDirection: "S" }))
-        .toMatchObject({ x: 1, y: 2, facingDirection: "S" })
+        .toBe(2)
     })
     it("when facing north, decrement Y", () => { 
       expect(getNewYIfValid({ x: 1, y: 1, facingDirection: "N" }))
-        .toMatchObject({ x: 1, y: 0, facingDirection: "N" })
+        .toBe(0)
     })
   })
-  
-    // it("facing south and moving in a straight line", () => {
-    //     expect(explorer.explore([5, 5], [0, 0], "S", "MMMM")).toEqual([0, 4, "S"]);
-    // });
-
-    // it("rotating on the spot", () => {
-    //     expect(explorer.explore([5, 5], [0, 0], "S", "RRRRRRR")).toEqual([0, 0, "E"]);
-    // });
-
-    // it("facing east and moving in a straight line", () => {
-    //     expect(explorer.explore([5, 5], [0, 0], "E", "MMMM")).toEqual([4, 0, "E"]);
-    // });
-
-    // it("facing south with complex movement", () => {
-    //     expect(explorer.explore([5, 5], [0, 0], "S", "MLMMMRMMRM")).toEqual([2, 3, "W"]);
-    // });
-
-    // it("facing south with complex movement not starting at the origin", () => {
-    //     expect(explorer.explore([5, 5], [1, 1], "S", "MLMMMRMMRM")).toEqual([3, 4, "W"]);
-    // });
-
-    // it("facing north with complex movement", () => {
-    //     expect(explorer.explore([5, 5], [0, 0], "N", "RMRMMMRMRM")).toEqual([0, 2, "N"]);
-    // });
 });
