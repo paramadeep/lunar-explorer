@@ -41,23 +41,4 @@ describe("motionOrcustrator", () => {
       ).toMatchObject({ x: 1, y: 1, facingDirection: "E" });
     });
   });
-
-  // describe("getNewYIfValid", () => {
-  //   it("when facing East, return same value", () => {
-  //     expect(getNewYIfValid({ x: 1, y: 1, facingDirection: "E" }))
-  //       .toBe(1)
-  //   })
-  //   it("when facing West, return same value", () => {
-  //     expect(getNewYIfValid({ x: 1, y: 1, facingDirection: "W" }))
-  //       .toBe(1)
-  //   })
-  //   it("when facing south, increment Y", () => {
-  //     expect(getNewYIfValid({ x: 1, y: 1, facingDirection: "S" }))
-  //       .toBe(2)
-  //   })
-  //   it("when facing north, decrement Y", () => {
-  //     expect(getNewYIfValid({ x: 1, y: 1, facingDirection: "N" }))
-  //       .toBe(0)
-  //   })
-  // })
 });
