@@ -13,6 +13,9 @@ function validateInputs(
   // startingPosition shoudl be with in 0,0 and lunarSurfaceSize. else throw error
 }
 
+//Assumption: commands will keep the co-ordinated to stay with the boundry of the surface. 
+// need to handle if the co-ordinates goes out of the surface. 
+
 function explore(
   lunarSurfaceSize: [number, number],
   startingPosition: [number, number],
