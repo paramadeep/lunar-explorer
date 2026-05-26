@@ -1,4 +1,5 @@
 import coordinate from "./coordinate";
+import { toDirection } from "./direction";
 import { performMotion } from "./motionOrchestrator";
 
 function validateInputs(
@@ -26,8 +27,9 @@ function explore(
   var finalCoOrdinate: coordinate = {
     x: startingPosition[0],
     y: startingPosition[1],
-    facingDirection: startingDirection,
+    facingDirection: toDirection(startingDirection),
   };
+  
   for (const char of commands) {
     finalCoOrdinate = performMotion(finalCoOrdinate, char);
   }

@@ -1,5 +1,5 @@
 import coordinate from "./coordinate";
-import { Direction, toDirection } from "./direction";
+import { Direction } from "./direction";
 
 const { N, S, E, W } = Direction;
 
@@ -31,22 +31,20 @@ const yIncrementerMap: Record<Direction, number> = {
   [W]: 0,
 };
 
-function getRightSide(facingDirection: string): Direction {
-  return rightSideMap[toDirection(facingDirection)];
+function getRightSide(facingDirection: Direction): Direction {
+  return rightSideMap[facingDirection];
 }
 
-function getLeftSide(facingDirection: string): Direction {
-  return leftSideMap[toDirection(facingDirection)];
+function getLeftSide(facingDirection: Direction): Direction {
+  return leftSideMap[facingDirection];
 }
 
 function getNewXIfValid(initialCoOrdinate: coordinate): number {
-  const dir = toDirection(initialCoOrdinate.facingDirection);
-  return initialCoOrdinate.x + xIncrementerMap[dir];
+  return initialCoOrdinate.x + xIncrementerMap[initialCoOrdinate.facingDirection];
 }
 
 function getNewYIfValid(initialCoOrdinate: coordinate): number {
-  const dir = toDirection(initialCoOrdinate.facingDirection);
-  return initialCoOrdinate.y + yIncrementerMap[dir];
+  return initialCoOrdinate.y + yIncrementerMap[initialCoOrdinate.facingDirection];
 }
 
 export { getRightSide, getLeftSide, getNewXIfValid, getNewYIfValid };
