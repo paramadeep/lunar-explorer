@@ -4,7 +4,7 @@ import { abstractMotion, move, turnLeft, turnRight } from "./motion";
 
 const { M, L, R } = Instruction;
 
-const motionMap: Record<Instruction, abstractMotion> = {
+const instructionMotionMap: Record<Instruction, abstractMotion> = {
   [M]: move,
   [L]: turnLeft,
   [R]: turnRight,
@@ -16,6 +16,6 @@ export const performMotion = (
   maxX: number,
   maxY: number,
 ): coordinate => {
-  const motionFunction = motionMap[instruction];
-  return motionFunction(initialCoOrdinate, maxX, maxY);
+  const motion = instructionMotionMap[instruction];
+  return motion(initialCoOrdinate, maxX, maxY);
 };

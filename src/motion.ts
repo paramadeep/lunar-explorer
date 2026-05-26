@@ -6,13 +6,13 @@ import {
 } from "./basicMoves";
 import coordinate from "./coordinate";
 
-type abstractMotion = (
+type motionFunction = (
   initialCoOrdinate: coordinate,
   maxX: number,
   maxY: number,
 ) => coordinate;
 
-var move: abstractMotion = (
+var move: motionFunction = (
   initialCoOrdinate: coordinate,
   maxX: number,
   maxY: number,
@@ -24,10 +24,10 @@ var move: abstractMotion = (
   };
 };
 
-var turnLeft: abstractMotion = (
+var turnLeft: motionFunction = (
   initialCoOrdinate: coordinate,
-  maxX: number,
-  maxY: number,
+  _maxX: number,
+  _maxY: number,
 ) => {
   return {
     x: initialCoOrdinate.x,
@@ -36,10 +36,10 @@ var turnLeft: abstractMotion = (
   };
 };
 
-var turnRight: abstractMotion = (
+var turnRight: motionFunction = (
   initialCoOrdinate: coordinate,
-  maxX: number,
-  maxY: number,
+  _maxX: number,
+  _maxY: number,
 ) => {
   return {
     x: initialCoOrdinate.x,
@@ -48,4 +48,4 @@ var turnRight: abstractMotion = (
   };
 };
 
-export { turnLeft, turnRight, move, abstractMotion };
+export { turnLeft, turnRight, move, motionFunction as abstractMotion };
