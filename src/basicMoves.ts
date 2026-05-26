@@ -1,4 +1,5 @@
 import coordinate from "./coordinate";
+
 const rightSideMap: Record<string, string> = {
   N: "E",
   E: "S",
