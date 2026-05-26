@@ -1,4 +1,5 @@
-# README
+1. Completed with full test coverage
+2. Throw error when sourface boundary is breached by the instructions
 
 ## Getting started
 
