@@ -1,16 +1,18 @@
 import { describe, expect, it } from "@jest/globals";
 import { Instruction, toInstruction } from "./instruction";
 
+const { M, L, R } = Instruction;
+
 describe("instruction", () => {
   describe("toInstruction", () => {
     it("returns Instruction.M for 'M'", () => {
-      expect(toInstruction("M")).toBe(Instruction.M);
+      expect(toInstruction("M")).toBe(M);
     });
     it("returns Instruction.L for 'L'", () => {
-      expect(toInstruction("L")).toBe(Instruction.L);
+      expect(toInstruction("L")).toBe(L);
     });
     it("returns Instruction.R for 'R'", () => {
-      expect(toInstruction("R")).toBe(Instruction.R);
+      expect(toInstruction("R")).toBe(R);
     });
 
     it("throws on unknown instruction", () => {

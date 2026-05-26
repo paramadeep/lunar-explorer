@@ -1,32 +1,34 @@
 import coordinate from "./coordinate";
 import { Direction, toDirection } from "./direction";
 
+const { N, S, E, W } = Direction;
+
 const rightSideMap: Record<Direction, Direction> = {
-  [Direction.N]: Direction.E,
-  [Direction.E]: Direction.S,
-  [Direction.S]: Direction.W,
-  [Direction.W]: Direction.N,
+  [N]: E,
+  [E]: S,
+  [S]: W,
+  [W]: N,
 };
 
 const leftSideMap: Record<Direction, Direction> = {
-  [Direction.N]: Direction.W,
-  [Direction.E]: Direction.N,
-  [Direction.S]: Direction.E,
-  [Direction.W]: Direction.S,
+  [N]: W,
+  [E]: N,
+  [S]: E,
+  [W]: S,
 };
 
 const xIncrementerMap: Record<Direction, number> = {
-  [Direction.N]: 0,
-  [Direction.S]: 0,
-  [Direction.E]: 1,
-  [Direction.W]: -1,
+  [N]: 0,
+  [S]: 0,
+  [E]: 1,
+  [W]: -1,
 };
 
 const yIncrementerMap: Record<Direction, number> = {
-  [Direction.N]: -1,
-  [Direction.S]: 1,
-  [Direction.E]: 0,
-  [Direction.W]: 0,
+  [N]: -1,
+  [S]: 1,
+  [E]: 0,
+  [W]: 0,
 };
 
 function getRightSide(facingDirection: string): Direction {
