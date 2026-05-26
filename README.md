@@ -1,6 +1,12 @@
 1. Completed with full test coverage
 2. Throw error when sourface boundary is breached by the instructions
 
+### Validation Not Enforced
+
+1. lunarSurfaceSize should be in positive integers, since screen starts at (0,0) in top left. else throw error
+2. startingPosition shoudl be with in 0,0 and lunarSurfaceSize. else throw error
+
+
 ## Getting started
 
 See [PROBLEM.md](PROBLEM.md) for an explanation of the problem to solve.
