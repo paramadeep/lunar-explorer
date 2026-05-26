@@ -24,15 +24,17 @@ function explore(
   commands: string,
 ): [number, number, string] {
   validateInputs(lunarSurfaceSize, startingPosition, startingDirection);
-  var finalCoOrdinate: coordinate = {
+  const initialCoOrdinate: coordinate = {
     x: startingPosition[0],
     y: startingPosition[1],
     facingDirection: toDirection(startingDirection),
   };
-  
-  for (const char of commands) {
-    finalCoOrdinate = performMotion(finalCoOrdinate, char);
-  }
+
+  const finalCoOrdinate = [...commands].reduce(
+    (coord, char) => performMotion(coord, char),
+    initialCoOrdinate,
+  );
+
   return [
     finalCoOrdinate.x,
     finalCoOrdinate.y,
