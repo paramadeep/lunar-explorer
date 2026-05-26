@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "PricingMonkey take home programming exercise",
   "scripts": {
-    "test": "jest",
+    "test": "jest --collect-coverage",
     "test-watch": "jest --watch"
   },
   "private": true,
