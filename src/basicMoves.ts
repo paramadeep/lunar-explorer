@@ -39,12 +39,30 @@ function getLeftSide(facingDirection: Direction): Direction {
   return leftSideMap[facingDirection];
 }
 
-function getNewXIfValid(initialCoOrdinate: coordinate): number {
-  return initialCoOrdinate.x + xIncrementerMap[initialCoOrdinate.facingDirection];
+function isOutOfBoundary(actualValue: number, allowedMax: number) {
+  return actualValue < 0 || actualValue > allowedMax;
 }
 
-function getNewYIfValid(initialCoOrdinate: coordinate): number {
-  return initialCoOrdinate.y + yIncrementerMap[initialCoOrdinate.facingDirection];
+function getNewXIfValid(initialCoOrdinate: coordinate, maxX: number): number {
+  const initX = initialCoOrdinate.x;
+  const newX = initX + xIncrementerMap[initialCoOrdinate.facingDirection];
+  if (isOutOfBoundary(newX, maxX)) {
+    throw new Error(
+      `The movement goes out of boundary of x min is 0, max is ${maxX}, starting is ${initX}, ending is ${newX}`,
+    );
+  }
+  return newX;
+}
+
+function getNewYIfValid(initialCoOrdinate: coordinate, maxY: number): number {
+  const initY = initialCoOrdinate.y;
+  const newY = initY + yIncrementerMap[initialCoOrdinate.facingDirection];
+  if (isOutOfBoundary(newY, maxY)) {
+    throw new Error(
+      `The movement goes out of boundary of y min is 0, max is ${maxY}, starting is ${initY}, ending is ${newY}`,
+    );
+  }
+  return newY;
 }
 
 export { getRightSide, getLeftSide, getNewXIfValid, getNewYIfValid };

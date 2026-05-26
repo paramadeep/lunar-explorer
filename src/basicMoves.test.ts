@@ -42,31 +42,59 @@ describe("basicMoves", () => {
 
   describe("getNewXIfValid", () => {
     it("when facing south, return same value", () => {
-      expect(getNewXIfValid({ x: 1, y: 1, facingDirection: S })).toBe(1);
+      expect(getNewXIfValid({ x: 1, y: 1, facingDirection: S }, 5)).toBe(1);
     });
     it("when facing north, return same value", () => {
-      expect(getNewXIfValid({ x: 1, y: 1, facingDirection: N })).toBe(1);
+      expect(getNewXIfValid({ x: 1, y: 1, facingDirection: N }, 5)).toBe(1);
     });
     it("when facing east, increment X", () => {
-      expect(getNewXIfValid({ x: 1, y: 1, facingDirection: E })).toBe(2);
+      expect(getNewXIfValid({ x: 1, y: 1, facingDirection: E }, 5)).toBe(2);
     });
     it("when facing west, decrement X", () => {
-      expect(getNewXIfValid({ x: 1, y: 1, facingDirection: W })).toBe(0);
+      expect(getNewXIfValid({ x: 1, y: 1, facingDirection: W }, 5)).toBe(0);
+    });
+    it("when goes beyond max X throw error", () => {
+      expect(() =>
+        getNewXIfValid({ x: 1, y: 1, facingDirection: E }, 1),
+      ).toThrow(
+        "The movement goes out of boundary of x min is 0, max is 1, starting is 1, ending is 2",
+      );
+    });
+    it("when goes beyond 0 throw error", () => {
+      expect(() =>
+        getNewXIfValid({ x: 0, y: 1, facingDirection: W }, 1),
+      ).toThrow(
+        "The movement goes out of boundary of x min is 0, max is 1, starting is 0, ending is -1",
+      );
     });
   });
 
   describe("getNewYIfValid", () => {
     it("when facing East, return same value", () => {
-      expect(getNewYIfValid({ x: 1, y: 1, facingDirection: E })).toBe(1);
+      expect(getNewYIfValid({ x: 1, y: 1, facingDirection: E }, 5)).toBe(1);
     });
     it("when facing West, return same value", () => {
-      expect(getNewYIfValid({ x: 1, y: 1, facingDirection: W })).toBe(1);
+      expect(getNewYIfValid({ x: 1, y: 1, facingDirection: W }, 5)).toBe(1);
     });
     it("when facing south, increment Y", () => {
-      expect(getNewYIfValid({ x: 1, y: 1, facingDirection: S })).toBe(2);
+      expect(getNewYIfValid({ x: 1, y: 1, facingDirection: S }, 5)).toBe(2);
     });
     it("when facing north, decrement Y", () => {
-      expect(getNewYIfValid({ x: 1, y: 1, facingDirection: N })).toBe(0);
+      expect(getNewYIfValid({ x: 1, y: 1, facingDirection: N }, 5)).toBe(0);
+    });
+    it("when goes beyond max Y throw error", () => {
+      expect(() =>
+        getNewYIfValid({ x: 1, y: 1, facingDirection: S }, 1),
+      ).toThrow(
+        "The movement goes out of boundary of y min is 0, max is 1, starting is 1, ending is 2",
+      );
+    });
+    it("when goes beyond 0 throw error", () => {
+      expect(() =>
+        getNewYIfValid({ x: 1, y: 0, facingDirection: N }, 1),
+      ).toThrow(
+        "The movement goes out of boundary of y min is 0, max is 1, starting is 0, ending is -1",
+      );
     });
   });
 });

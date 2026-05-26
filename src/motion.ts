@@ -6,17 +6,29 @@ import {
 } from "./basicMoves";
 import coordinate from "./coordinate";
 
-type abstractMotion = (initialCoOrdinate: coordinate) => coordinate;
+type abstractMotion = (
+  initialCoOrdinate: coordinate,
+  maxX: number,
+  maxY: number,
+) => coordinate;
 
-var move: abstractMotion = (initialCoOrdinate: coordinate) => {
+var move: abstractMotion = (
+  initialCoOrdinate: coordinate,
+  maxX: number,
+  maxY: number,
+) => {
   return {
-    x: getNewXIfValid(initialCoOrdinate),
-    y: getNewYIfValid(initialCoOrdinate),
+    x: getNewXIfValid(initialCoOrdinate, maxX),
+    y: getNewYIfValid(initialCoOrdinate, maxY),
     facingDirection: initialCoOrdinate.facingDirection,
   };
 };
 
-var turnLeft: abstractMotion = (initialCoOrdinate: coordinate) => {
+var turnLeft: abstractMotion = (
+  initialCoOrdinate: coordinate,
+  maxX: number,
+  maxY: number,
+) => {
   return {
     x: initialCoOrdinate.x,
     y: initialCoOrdinate.y,
@@ -24,7 +36,11 @@ var turnLeft: abstractMotion = (initialCoOrdinate: coordinate) => {
   };
 };
 
-var turnRight: abstractMotion = (initialCoOrdinate: coordinate) => {
+var turnRight: abstractMotion = (
+  initialCoOrdinate: coordinate,
+  maxX: number,
+  maxY: number,
+) => {
   return {
     x: initialCoOrdinate.x,
     y: initialCoOrdinate.y,

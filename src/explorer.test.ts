@@ -41,4 +41,24 @@ describe("explorer", () => {
       "N",
     ]);
   });
+  it("throw error when goes beyond top boundary", () => {
+    expect(() => explorer.explore([1, 1], [0, 0], "N", "MM")).toThrow(
+      "The movement goes out of boundary of y min is 0, max is 1, starting is 0, ending is -1",
+    );
+  });
+  it("throw error when goes beyond bottom boundary", () => {
+    expect(() => explorer.explore([1, 1], [0, 0], "S", "MM")).toThrow(
+      "The movement goes out of boundary of y min is 0, max is 1, starting is 1, ending is 2",
+    );
+  });
+  it("throw error when goes beyond left boundary", () => {
+    expect(() => explorer.explore([1, 1], [0, 0], "W", "MM")).toThrow(
+      "The movement goes out of boundary of x min is 0, max is 1, starting is 0, ending is -1",
+    );
+  });
+  it("throw error when goes beyond right boundary", () => {
+    expect(() => explorer.explore([1, 1], [0, 0], "E", "MM")).toThrow(
+      "The movement goes out of boundary of x min is 0, max is 1, starting is 1, ending is 2",
+    );
+  });
 });

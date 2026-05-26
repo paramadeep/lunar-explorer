@@ -1,30 +1,32 @@
 import { describe, expect, it } from "@jest/globals";
 import { Direction } from "./direction";
 import { performMotion } from "./motionOrchestrator";
+import { Instruction } from "./instruction";
 
 const { N, S, E, W } = Direction;
+const { M, R, L } = Instruction;
 
 describe("motionOrcustrator", () => {
   describe("move", () => {
     it("just up when facing north", () => {
       expect(
-        performMotion({ x: 1, y: 1, facingDirection: N }, "M"),
+        performMotion({ x: 1, y: 1, facingDirection: N }, M, 5, 5),
       ).toMatchObject({ x: 1, y: 0, facingDirection: N });
     });
     it("just down when facing south", () => {
       expect(
-        performMotion({ x: 1, y: 1, facingDirection: S }, "M"),
+        performMotion({ x: 1, y: 1, facingDirection: S }, M, 5, 5),
       ).toMatchObject({ x: 1, y: 2, facingDirection: S });
     });
 
     it("just right when facing east", () => {
       expect(
-        performMotion({ x: 1, y: 1, facingDirection: E }, "M"),
+        performMotion({ x: 1, y: 1, facingDirection: E }, M, 5, 5),
       ).toMatchObject({ x: 2, y: 1, facingDirection: E });
     });
     it("just left when facing west", () => {
       expect(
-        performMotion({ x: 1, y: 1, facingDirection: W }, "M"),
+        performMotion({ x: 1, y: 1, facingDirection: W }, M, 5, 5),
       ).toMatchObject({ x: 0, y: 1, facingDirection: W });
     });
   });
@@ -32,7 +34,7 @@ describe("motionOrcustrator", () => {
   describe("turnLeft", () => {
     it("just change direction to left side", () => {
       expect(
-        performMotion({ x: 1, y: 1, facingDirection: N }, "L"),
+        performMotion({ x: 1, y: 1, facingDirection: N }, L, 5, 5),
       ).toMatchObject({ x: 1, y: 1, facingDirection: W });
     });
   });
@@ -40,7 +42,7 @@ describe("motionOrcustrator", () => {
   describe("turnRight", () => {
     it("just change direction to right side", () => {
       expect(
-        performMotion({ x: 1, y: 1, facingDirection: N }, "R"),
+        performMotion({ x: 1, y: 1, facingDirection: N }, R, 5, 5),
       ).toMatchObject({ x: 1, y: 1, facingDirection: E });
     });
   });

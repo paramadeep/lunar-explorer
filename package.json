@@ -4,7 +4,8 @@
   "description": "PricingMonkey take home programming exercise",
   "scripts": {
     "test": "jest --collect-coverage",
-    "test-watch": "jest --watch"
+    "test-watch": "jest --watch",
+    "format": "prettier -w ./src"
   },
   "private": true,
   "devDependencies": {
