@@ -1,5 +1,5 @@
-export default interface coordinate  { 
-  x:number,
-  y: number,
-  facingDirection: string
+export default interface coordinate {
+  x: number;
+  y: number;
+  facingDirection: string;
 }
