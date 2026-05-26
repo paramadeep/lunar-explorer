@@ -1,9 +1,9 @@
 import { getNewXIfValid, getNewYIfValid, getLeftSide, getRightSide } from "./basicMoves"
-import coOrdinate from "./coOrdinate"
+import coordinate from "./coordinate"
 
-type abstractMotion = (initialCoOrdinate: coOrdinate) => coOrdinate
+type abstractMotion = (initialCoOrdinate: coordinate) => coordinate
 
-var move: abstractMotion = (initialCoOrdinate: coOrdinate) => { 
+var move: abstractMotion = (initialCoOrdinate: coordinate) => { 
   return {
     x: getNewXIfValid(initialCoOrdinate),
     y: getNewYIfValid(initialCoOrdinate),
@@ -11,7 +11,7 @@ var move: abstractMotion = (initialCoOrdinate: coOrdinate) => {
   }
 }
 
-var turnLeft: abstractMotion = (initialCoOrdinate: coOrdinate) => { 
+var turnLeft: abstractMotion = (initialCoOrdinate: coordinate) => { 
   return {
     x: initialCoOrdinate.x,
     y: initialCoOrdinate.y,
@@ -19,7 +19,7 @@ var turnLeft: abstractMotion = (initialCoOrdinate: coOrdinate) => {
   }
 }
 
-var turnRight: abstractMotion = (initialCoOrdinate: coOrdinate) => { 
+var turnRight: abstractMotion = (initialCoOrdinate: coordinate) => { 
   return {
     x: initialCoOrdinate.x,
     y: initialCoOrdinate.y,

@@ -1,4 +1,4 @@
-import coOrdinate from "./coOrdinate"
+import coordinate from "./coordinate"
 
 function getRightSide(facingDirection: string): string {
   const rightSideMap: Record<string, string> = {
@@ -20,7 +20,7 @@ function getLeftSide(facingDirection: string): string {
   return leftSideMap[facingDirection]
 }
 
-function getNewXIfValid(initialCoOrdinate: coOrdinate): number {
+function getNewXIfValid(initialCoOrdinate: coordinate): number {
   var xIncrementerMap: Record<string, number> = {
     "N":0,
     "S":0,
@@ -31,7 +31,7 @@ function getNewXIfValid(initialCoOrdinate: coOrdinate): number {
   return initialCoOrdinate.x+valueToIncrement
 }
 
-function getNewYIfValid(initialCoOrdinate: coOrdinate): number {
+function getNewYIfValid(initialCoOrdinate: coordinate): number {
   var yIncrementerMap: Record<string, number> = {
     "N":-1,
     "S":1,

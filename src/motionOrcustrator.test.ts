@@ -1,5 +1,5 @@
 import { describe, expect, it } from "@jest/globals";
-import { performMotion } from "./motionOrcustrator";
+import { performMotion } from "./motionOrchestrator";
 
 describe("motionOrcustrator", () => {
   describe("move", () => {

@@ -1,5 +1,5 @@
-import coOrdinate from "./coOrdinate";
-import { performMotion } from "./motionOrcustrator";
+import coordinate from "./coordinate";
+import { performMotion } from "./motionOrchestrator";
 
 function validateInputs(
   lunarSurfaceSize: [number, number],
@@ -23,7 +23,7 @@ function explore(
   commands: string,
 ): [number, number, string] {
   validateInputs(lunarSurfaceSize, startingPosition, startingDirection);
-  var finalCoOrdinate: coOrdinate = {
+  var finalCoOrdinate: coordinate = {
     x: startingPosition[0],
     y: startingPosition[1],
     facingDirection: startingDirection,
