@@ -10,3 +10,5 @@ const motionMap: Record<string, abstractMotion> = {
 export const performMotion = (initialCoOrdinate: coOrdinate, instruction: string) : coOrdinate => { 
   return motionMap[instruction](initialCoOrdinate)
 }
+
+

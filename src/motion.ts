@@ -1,29 +1,29 @@
 import { getNewXIfValid, getNewYIfValid, getLeftSide, getRightSide } from "./basicMoves"
 import coOrdinate from "./coOrdinate"
 
-type abstractMotion = (initalCoOrdinate: coOrdinate) => coOrdinate
+type abstractMotion = (initialCoOrdinate: coOrdinate) => coOrdinate
 
-var move: abstractMotion = (initalCoOrdinate: coOrdinate) => { 
+var move: abstractMotion = (initialCoOrdinate: coOrdinate) => { 
   return {
-    x: getNewXIfValid(initalCoOrdinate),
-    y: getNewYIfValid(initalCoOrdinate),
-    facingDirection: initalCoOrdinate.facingDirection
+    x: getNewXIfValid(initialCoOrdinate),
+    y: getNewYIfValid(initialCoOrdinate),
+    facingDirection: initialCoOrdinate.facingDirection
   }
 }
 
-var turnLeft: abstractMotion = (initalCoOrdinate: coOrdinate) => { 
+var turnLeft: abstractMotion = (initialCoOrdinate: coOrdinate) => { 
   return {
-    x: initalCoOrdinate.x,
-    y: initalCoOrdinate.y,
-    facingDirection: getLeftSide(initalCoOrdinate.facingDirection)
+    x: initialCoOrdinate.x,
+    y: initialCoOrdinate.y,
+    facingDirection: getLeftSide(initialCoOrdinate.facingDirection)
   }
 }
 
-var turnRight: abstractMotion = (initalCoOrdinate: coOrdinate) => { 
+var turnRight: abstractMotion = (initialCoOrdinate: coOrdinate) => { 
   return {
-    x: initalCoOrdinate.x,
-    y: initalCoOrdinate.y,
-    facingDirection: getRightSide(initalCoOrdinate.facingDirection)
+    x: initialCoOrdinate.x,
+    y: initialCoOrdinate.y,
+    facingDirection: getRightSide(initialCoOrdinate.facingDirection)
   }
 }
 
