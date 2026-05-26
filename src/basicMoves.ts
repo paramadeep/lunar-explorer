@@ -1,48 +1,50 @@
 import coordinate from "./coordinate";
+import { Direction, toDirection } from "./direction";
 
-const rightSideMap: Record<string, string> = {
-  N: "E",
-  E: "S",
-  S: "W",
-  W: "N",
-};
-const leftSideMap: Record<string, string> = {
-  N: "W",
-  E: "N",
-  S: "E",
-  W: "S",
+const rightSideMap: Record<Direction, Direction> = {
+  [Direction.N]: Direction.E,
+  [Direction.E]: Direction.S,
+  [Direction.S]: Direction.W,
+  [Direction.W]: Direction.N,
 };
 
-const xIncrementerMap: Record<string, number> = {
-  N: 0,
-  S: 0,
-  E: 1,
-  W: -1,
+const leftSideMap: Record<Direction, Direction> = {
+  [Direction.N]: Direction.W,
+  [Direction.E]: Direction.N,
+  [Direction.S]: Direction.E,
+  [Direction.W]: Direction.S,
 };
 
-const yIncrementerMap: Record<string, number> = {
-  N: -1,
-  S: 1,
-  E: 0,
-  W: 0,
+const xIncrementerMap: Record<Direction, number> = {
+  [Direction.N]: 0,
+  [Direction.S]: 0,
+  [Direction.E]: 1,
+  [Direction.W]: -1,
 };
 
-function getRightSide(facingDirection: string): string {
-  return rightSideMap[facingDirection];
+const yIncrementerMap: Record<Direction, number> = {
+  [Direction.N]: -1,
+  [Direction.S]: 1,
+  [Direction.E]: 0,
+  [Direction.W]: 0,
+};
+
+function getRightSide(facingDirection: string): Direction {
+  return rightSideMap[toDirection(facingDirection)];
 }
 
-function getLeftSide(facingDirection: string): string {
-  return leftSideMap[facingDirection];
+function getLeftSide(facingDirection: string): Direction {
+  return leftSideMap[toDirection(facingDirection)];
 }
 
 function getNewXIfValid(initialCoOrdinate: coordinate): number {
-  const valueToIncrement = xIncrementerMap[initialCoOrdinate.facingDirection];
-  return initialCoOrdinate.x + valueToIncrement;
+  const dir = toDirection(initialCoOrdinate.facingDirection);
+  return initialCoOrdinate.x + xIncrementerMap[dir];
 }
 
 function getNewYIfValid(initialCoOrdinate: coordinate): number {
-  const valueToIncrement = yIncrementerMap[initialCoOrdinate.facingDirection];
-  return initialCoOrdinate.y + valueToIncrement;
+  const dir = toDirection(initialCoOrdinate.facingDirection);
+  return initialCoOrdinate.y + yIncrementerMap[dir];
 }
 
 export { getRightSide, getLeftSide, getNewXIfValid, getNewYIfValid };
