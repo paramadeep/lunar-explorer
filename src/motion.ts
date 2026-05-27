@@ -1,6 +1,6 @@
 import {
-  getNewXIfValid,
-  getNewYIfValid,
+  moveXIfFacingHorizontal,
+  moveYIfFacingVertical,
   getLeftSide,
   getRightSide,
 } from "./basicMoves";
@@ -12,19 +12,19 @@ type motionFunction = (
   maxY: number,
 ) => coordinate;
 
-var move: motionFunction = (
+const move: motionFunction = (
   initialCoOrdinate: coordinate,
   maxX: number,
   maxY: number,
 ) => {
   return {
-    x: getNewXIfValid(initialCoOrdinate, maxX),
-    y: getNewYIfValid(initialCoOrdinate, maxY),
+    x: moveXIfFacingHorizontal(initialCoOrdinate, maxX),
+    y: moveYIfFacingVertical(initialCoOrdinate, maxY),
     facingDirection: initialCoOrdinate.facingDirection,
   };
 };
 
-var turnLeft: motionFunction = (
+const turnLeft: motionFunction = (
   initialCoOrdinate: coordinate,
   _maxX: number,
   _maxY: number,
@@ -36,7 +36,7 @@ var turnLeft: motionFunction = (
   };
 };
 
-var turnRight: motionFunction = (
+const turnRight: motionFunction = (
   initialCoOrdinate: coordinate,
   _maxX: number,
   _maxY: number,

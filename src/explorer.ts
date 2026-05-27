@@ -20,7 +20,8 @@ function explore(
   const [maxX, maxY] = [...lunarSurfaceSize];
 
   const finalCoOrdinate = [...commands].reduce(
-    (coord, char) => performMotion(coord, toInstruction(char), maxX, maxY),
+    (coordinates, command) =>
+      performMotion(coordinates, toInstruction(command), maxX, maxY),
     initialCoOrdinate,
   );
 

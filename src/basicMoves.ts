@@ -43,7 +43,10 @@ function isOutOfBoundary(actualValue: number, allowedMax: number) {
   return actualValue < 0 || actualValue > allowedMax;
 }
 
-function getNewXIfValid(initialCoOrdinate: coordinate, maxX: number): number {
+function moveXIfFacingHorizontal(
+  initialCoOrdinate: coordinate,
+  maxX: number,
+): number {
   const initX = initialCoOrdinate.x;
   const newX = initX + xIncrementerMap[initialCoOrdinate.facingDirection];
   if (isOutOfBoundary(newX, maxX)) {
@@ -54,7 +57,10 @@ function getNewXIfValid(initialCoOrdinate: coordinate, maxX: number): number {
   return newX;
 }
 
-function getNewYIfValid(initialCoOrdinate: coordinate, maxY: number): number {
+function moveYIfFacingVertical(
+  initialCoOrdinate: coordinate,
+  maxY: number,
+): number {
   const initY = initialCoOrdinate.y;
   const newY = initY + yIncrementerMap[initialCoOrdinate.facingDirection];
   if (isOutOfBoundary(newY, maxY)) {
@@ -65,4 +71,9 @@ function getNewYIfValid(initialCoOrdinate: coordinate, maxY: number): number {
   return newY;
 }
 
-export { getRightSide, getLeftSide, getNewXIfValid, getNewYIfValid };
+export {
+  getRightSide,
+  getLeftSide,
+  moveXIfFacingHorizontal,
+  moveYIfFacingVertical,
+};
